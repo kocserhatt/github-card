@@ -1,18 +1,18 @@
-const api = document.querySelector('#api-ul');
+const api = document.querySelector("#api-ul");
 
 async function fetchApi() {
-    const response = await fetch('https://api.github.com/users/kocserhatt');
-    const data = await response.json();
-    return [data];
+  const response = await fetch("https://api.github.com/users/kocserhatt");
+  const data = await response.json();
+  return [data];
 }
 
 async function getApi() {
-    const data = await fetchApi();
-    for (const apiEkle of data) {
-        api.innerHTML += `
+  const data = await fetchApi();
+  for (const apiEkle of data) {
+    api.innerHTML += `
             <div class="userInfo">
                 <h2 class="titleTwo">GİTHUB ÖĞRENCİ KARTI</h2>
-                <div class="avatar-container">z
+                <div class="avatar-container">
                     <img src="${apiEkle.avatar_url}" alt="User Avatar" class="image">
                     <div class="overlay"></div>
                 </div>
@@ -33,6 +33,6 @@ async function getApi() {
                 </div>
             </div>
         `;
-    }
+  }
 }
 getApi();
